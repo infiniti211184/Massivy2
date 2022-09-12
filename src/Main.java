@@ -1,37 +1,56 @@
-public class Array {
+public class Main {
     public static int[] generateRandomArray() {
-        java.util.Random rundom = new java.util.Random();
+        java.util.Random random = new java.util.Random();
         int[] arr = new int[30];
         for (int i = 0; i < arr.length; i++) {
-            arr[i] = rundom.nextInt(100_000) + 100_000;
+            arr[i] = random.nextInt(100_000) + 100_000;
         }
         return arr;
     }
-    public static void main (String[] args) {
-        var salaries; int[] =generateRandomArray();
-        int sum = 0;
-        for (var salary : salaries) {
-            sum += salary;
+
+    // Задание 1
+    public static void main(String[] args) {
+        int[] arr = generateRandomArray();
+        int arrSum = 0;
+        for (int i = 0; i < arr.length; i++) {
+            arrSum += arr[i];
         }
-        System.out.printf("Сумма трат в месяц составила %d ублей", sum);
+        System.out.println("Сумма трат за месяц составила " + arrSum + " рублей");
+        System.out.println();
+
+
+        // Задание 2
+
+        var salaries = generateRandomArray();
+
+        int arrMin = salaries[0];
+        int arrMax = salaries[0];
+        for (int i = 0; i < salaries.length; i++) {
+            if (arrMax < salaries[i]) {
+                arrMax = salaries[i];
+            }
+            if (arrMin > salaries[i]) {
+                arrMin = salaries[i];
+            }
+        }
+        System.out.println("Максимальная сумма трат за день " + arrMax + "рублей");
+        System.out.println("Минимальная сумма трат за день " + arrMin + "рублей");
+        System.out.println();
+
+        // Задание 3
+
+        System.out.println("В среднем компания тратит в день " + arrSum / 30.0f);
+        System.out.println();
+
+
+        // Задание 4
+
+        char[] reverseFullName = {'n', 'a', 'v', 'I', ' ', 'v', 'o', 'n', 'a', 'v', 'I'};
+        for (int a = reverseFullName.length - 1; a >= 0; a--) {
+            System.out.print(reverseFullName[a]);
+
+        }
+
     }
-    public static void task2() {
-        var salaries int[] =generateRandomArray();
-        int max = salaries[0];
-        int min = salaries[0];
-        for (var salary : salaries) {
-            if (max < salary) {
-                max = salary;
-            }
-            if (min > salary) {
-                min = salary;
-            }
-            System.out.printf("Минимальная сумма трат за день составила %d рублей. Максимальная сумма трат за день составила %d рублей, min, max");
-        }
-        public static void task4 () {
-            char[] reverseFullName = {"n", "a", "v", "i", " ", "v", "o", "v", "i"};
-            for (int i = reverseFullName.length - 1; i <= 0; i--) {
-                System.out.print(reverseFullName[i]);
-            }
-        }
-    }
+
+}
